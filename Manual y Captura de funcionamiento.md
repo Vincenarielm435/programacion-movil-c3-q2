@@ -1,5 +1,5 @@
 Componente Boton
-
+```js
 <template>
     <ion-button
       :color="color1"
@@ -92,9 +92,9 @@ Componente Boton
   /* Puedes añadir estilos personalizados aquí si deseas */
   </style>
   
-
+```
   Componente Tarjeta
-
+```js
   <template>
     <ion-card>
       <ion-card-header v-if="title || subtitle">
@@ -102,23 +102,23 @@ Componente Boton
         <ion-card-subtitle v-if="subtitle">{{ subtitle }}</ion-card-subtitle>
       </ion-card-header>
   
-      <ion-card-content>
+ <ion-card-content>
         <slot></slot>
       </ion-card-content>
   
-      <ion-img v-if="image" :src="image" />
-    </ion-card>
+<ion-img v-if="image" :src="image" />
+ </ion-card>
     <ion-card>
       <ion-card-header v-if="title || subtitle">
         <ion-card-title v-if="title">{{ title1 }}</ion-card-title>
         <ion-card-subtitle v-if="subtitle">{{ subtitle }}</ion-card-subtitle>
       </ion-card-header>
   
-      <ion-card-content>
+<ion-card-content>
         <slot></slot>
       </ion-card-content>
   
-      <ion-img v-if="image" :src="image" />
+<ion-img v-if="image" :src="image" />
     </ion-card>
     <ion-card>
       <ion-card-header v-if="title || subtitle">
@@ -126,11 +126,11 @@ Componente Boton
         <ion-card-subtitle v-if="subtitle">{{ subtitle1 }}</ion-card-subtitle>
       </ion-card-header>
   
-      <ion-card-content>
+<ion-card-content>
         <slot></slot>
       </ion-card-content>
   
-      <ion-img v-if="image" :src="image" />
+ <ion-img v-if="image" :src="image" />
     </ion-card>
   </template>
   
@@ -177,10 +177,10 @@ Componente Boton
   /* Puedes añadir estilos personalizados aquí si deseas */
   </style>
   
-
+```
 
   Componente Input
-
+```js
   <template>
     <ion-item>
       <ion-label :for="id">{{ nombre }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-label>
@@ -259,13 +259,13 @@ Componente Boton
   }
   </style>
 
-
+```
 
   Componente CRUD
-
+```js
   <template>
     
-    <ion-item lines="none">
+ <ion-item lines="none">
     <ion-button color="primary" @click="$emit('create')" expand="block">
       Crear
     </ion-button>
@@ -318,9 +318,9 @@ Componente Boton
   }
   </style>
   
-  
+  ```
   Componente Formulario
-
+```js
 <template>
     <form @submit.prevent="handleSubmit">
       <ion-item>
@@ -328,24 +328,24 @@ Componente Boton
         <ion-input v-model="formData.name" required></ion-input>
       </ion-item>
   
-      <ion-item>
+<ion-item>
         <ion-label position="floating">Correo Electrónico:</ion-label>
         <ion-input v-model="formData.email" type="email" required></ion-input>
       </ion-item>
   
-      <ion-item>
+<ion-item>
         <ion-label position="floating">Mensaje:</ion-label>
         <ion-textarea v-model="formData.message" required></ion-textarea>
       </ion-item>
   
-      <div v-if="formErrors.length" class="errors">
+<div v-if="formErrors.length" class="errors">
         <p>Por favor corrige los siguientes errores:</p>
         <ul>
           <li v-for="(error, index) in formErrors" :key="index">{{ error }}</li>
         </ul>
       </div>
   
-      <ion-button type="submit" expand="block">Enviar</ion-button>
+<ion-button type="submit" expand="block">Enviar</ion-button>
     </form>
   </template>
   
@@ -414,8 +414,10 @@ Componente Boton
   }
   </style>
   
+```
   Componente en grupo
 
+```js
   <template>
   <ion-card>
     <ion-card-header>
@@ -423,19 +425,19 @@ Componente Boton
       <ion-card-subtitle>{{ cardSubtitle }}</ion-card-subtitle>
     </ion-card-header>
 
-    <ion-card-content>
+<ion-card-content>
       <!-- Contenido de la tarjeta -->
       <p>{{ cardContent }}</p>
 
-      <!-- Input para capturar datos -->
-      <ion-item>
+<!-- Input para capturar datos -->
+<ion-item>
         <ion-label position="floating">Escribe algo:</ion-label>
         <ion-input v-model="inputText" placeholder="" clear-input></ion-input>
       </ion-item>
 
-      <!-- Botón para actualizar contenido -->
-      <ion-button expand="block" color="primary" @click="updateCardContent">
-        Actualizar contenido
+<!-- Botón para actualizar contenido -->
+<ion-button expand="block" color="primary" @click="updateCardContent">
+     Actualizar contenido
       </ion-button>
     </ion-card-content>
   </ion-card>
@@ -499,3 +501,91 @@ export default defineComponent({
 <style scoped>
 /* Puedes añadir estilos personalizados aquí si deseas */
 </style>
+
+```
+
+    Vista
+
+```js
+  <template>
+  <ion-page>
+    <ion-header :translucent="true">
+      <ion-toolbar>
+        <ion-title>Blank</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+<ion-content :fullscreen="true">
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">Blank</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+<div id="container">
+        <strong>Ready to create an app?</strong>
+        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      </div>
+
+     
+<custom-input></custom-input>
+     <boton></boton>
+     <component-card> </component-card>
+     <component-crud></component-crud>
+     <component-formulario></component-formulario>
+     <component-grupo></component-grupo> 
+
+      
+</ion-content>
+  </ion-page>
+</template>
+
+<script setup lang="ts">
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import CustomInput from '../components/CustomInput.vue';
+import ComponentCrud from '@/components/ComponentCrud.vue';
+import ComponentFormulario from '@/components/ComponentFormulario.vue';
+import ComponentGrupo from '@/components/ComponentGrupo.vue';
+import Boton from '@/components/Boton.vue';
+import ComponentCard from '@/components/ComponentCard.vue';
+</script>
+
+<style scoped>
+#container {
+  text-align: center;
+  
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  
+  color: #8c8c8c;
+  
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+</style>
+
+ ```
+Captura de funcionamiento
+
+
+![Evidencia](imagenes\imagen1.png)
+
+![Evidencia](imagenes\imagen2.png)
+
+![Evidencia](imagenes\imagen3.png)
